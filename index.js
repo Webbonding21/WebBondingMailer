@@ -1,4 +1,3 @@
-// index.js
 const express = require('express');
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
@@ -6,16 +5,19 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+const port = process.env.PORT || 5000;
 
-// Conectar a MongoDB
+// Conectar a la base de datos
 connectDB();
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
 // Rutas
 app.use('/api/clients', require('./routes/clients'));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Iniciar el servidor
+app.listen(port, () => {
+    console.log(`Servidor corriendo en https://webbondingmailer.onrender.com`);
+});
