@@ -1,29 +1,35 @@
 const nodemailer = require('nodemailer');
-const fs = require('fs');
+const ejs = require('ejs');
 const path = require('path');
-const handlebars = require('handlebars');
-require('dotenv').config();
 
-const sendEmail = async (to, subject, templateData) => {
-    const templateSource = fs.readFileSync(path.join(__dirname, '../templates/emailTemplate.html'), 'utf8');
-    const template = handlebars.compile(templateSource);
-    const htmlToSend = template(templateData);
-
+const sendEmail = async (options) => {
+    // Configuración del transporte de correo
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        service: 'gmail', // o cualquier otro servicio de correo electrónico
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD
         }
     });
 
+    // Renderizar la plantilla .ejs
+    const templatePath = path.join(__dirname, '..', 'templates', 'emailTemplate.ejs');
+    const emailHTML = await ejs.renderFile(templatePath, {
+        name: options.name,
+        email: options.email,
+        message: options.message,
+        option: options.option
+    });
+
+    // Configuración del correo
     const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to,
-        subject,
-        html: htmlToSend
+        from: process.env.EMAIL_USERNAME,
+        to: options.email,
+        subject: options.subject,
+        html: emailHTML
     };
 
+    // Enviar el correo
     await transporter.sendMail(mailOptions);
 };
 

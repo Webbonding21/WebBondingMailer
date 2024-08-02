@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud de Servicio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+    }
+    .container {
+      margin: 0 auto;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .header {
+      background-color: #000;
+      color: #ffffff;
+      padding: 10px 0;
+      text-align: center;
+      border-radius: 15px 15px 0 0;
+    }
+    .header h1 {
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .header img {
+      width: 60px;
+      height: auto;
+      border-radius: 50%;
+    }
+    .content {
+      padding: 20px;
+      margin: 0px 0px;
+      background-color: #121212;
+    }
+    .content p {
+      color: #ffffff;
+    }
+    .content strong {
+      color: #3498db;
+    }
+    .footer {
+      background-color: #000;
+      border-radius: 0 0 15px 15px;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 12px;
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><img src="https://avatars.githubusercontent.com/u/177282276?v=4" alt=""> ¡Somos Web Bonding!</h1>
+    </div>
+    <div class="content">
+      <p>Hola <%= name %>,</p>
+      <p>¡Muchas gracias por confiar en nosotros! Estamos muy emocionados de ayudarte a convertir tus ideas en realidad.</p>
+      <p>Nos pondremos en contacto contigo muy pronto para discutir los detalles de tu proyecto (<%= option %>). 
+        <br><br>Mientras tanto, si tienes alguna pregunta o necesitas más información, no dudes en escribirnos.</p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/web.bonding/">web.bonding</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/584121510662">04121510662</a></p>
+      <p><strong>Correo:</strong> <a href="mailto:webbonding21@gmail.com">webbonding21@gmail.com</a></p>
+      <p><strong>WebSite:</strong> <a href="https://webbonding.onrender.com">webbonding.onrender.com</a></p>
+
+      <p>Muchas gracias por tu tiempo y apoyo. ¡Gracias por confiar en Web Bonding!</p>
+    </div>
+    <div class="footer">
+      <p>&copy; 2024 Web Bonding. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</body>
+</html>

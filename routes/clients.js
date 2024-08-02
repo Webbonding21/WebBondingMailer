@@ -3,24 +3,25 @@ const router = express.Router();
 const Client = require('../models/Client');
 const sendEmail = require('../utils/sendEmail');
 
-router.post('/', async (req, res) => {
+router.post('/clients', async (req, res) => {
     const { name, email, message, option } = req.body;
 
-    if (!name || !email || !message || !option) {
-        return res.status(400).json({ error: 'Todos los campos son obligatorios.' });
-    }
-
     try {
-        const newClient = new Client({ name, email, message, option });
-        await newClient.save();
+        const client = new Client({ name, email, message, option });
+        await client.save();
 
-        const templateData = { name, message, option };
-        await sendEmail(email, 'Confirmación de Solicitud de Servicios', templateData);
+        await sendEmail({
+            name: name,
+            email: email,
+            message: message,
+            option: option,
+            subject: 'Información de tu solicitud'
+        });
 
-        res.status(200).json({ message: 'Datos recibidos y correo enviado con éxito.' });
+        res.status(200).json({ message: 'Client saved and email sent successfully!' });
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Hubo un problema al procesar tu solicitud.' });
+        console.error(error);
+        res.status(500).json({ error: 'Server error. Please try again later.' });
     }
 });
 
