@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud de Servicio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .header {
+      background-color: #3a3a3a;
+      color: #ffffff;
+      padding: 10px 0;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+    }
+    .header h1 {
+      color: #8e44ad;
+    }
+    .content {
+      margin: 20px 0;
+    }
+    .content p {
+      color: #ffffff;
+    }
+    .content strong {
+      color: #3498db;
+    }
+    .footer {
+      text-align: center;
+      padding: 10px 0;
+      font-size: 12px;
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>¡Gracias por tu solicitud, {{name}}!</h1>
+    </div>
+    <div class="content">
+      <p>Hola {{name}},</p>
+      <p>Gracias por solicitar nuestros servicios. Nos pondremos en contacto contigo pronto para que hablemos sobre el pryecto que deseas ({{option}}).</p>
+      <p><strong>Mensaje:</strong> {{message}}</p>
+    </div>
+    <div class="footer">
+      <p>&copy; 2024 Web Bonding. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</body>
+</html>
